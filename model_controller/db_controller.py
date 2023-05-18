@@ -7,7 +7,7 @@ class DBController():
         self.collection = self.connect()
 
     def get_database(self):
-        client = MongoClient('localhost', port=27017)
+        client = MongoClient('mongodb', port=27017)
         db = client[self.DB_NAME]
         return db
     

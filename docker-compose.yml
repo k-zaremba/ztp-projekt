@@ -16,13 +16,10 @@ services:
   #     - ME_CONFIG_MONGODB_SERVER=mongodb
   #   depends_on:
   #     - mongodb
-
-
-
-  # model-controller:
-  #   build: ./model_controller
-  #   ports:
-  #     - 8000:8000
-  #  depends_on:
-  #     - mongodb
+  model-controller:
+    build: ./model_controller
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongodb
       

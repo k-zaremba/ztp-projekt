@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, log_loss, roc_auc_score, mean_absolute_error, mean_squared_error
 import time
 
-class ModelBuilder():
+class ModelController():
     
     def build_and_evaluate(self):
         timestamp = time.time()

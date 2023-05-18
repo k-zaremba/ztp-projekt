@@ -1,7 +1,8 @@
 ### HOW TO USE
 
-* run mongodb service using docker compose up
-* run FastApi using uvicorn app_controller:app --reload
+* run mongodb service and FastApi using `docker compose up`
+* GET localhost:8000/evals to list all recorded evaluations
+* POST localhost:8000/evaluate to build and evaluate the model
 
 #### whats missing
 * front 
