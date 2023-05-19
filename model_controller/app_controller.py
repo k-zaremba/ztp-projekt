@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from model_controller import ModelController
 from db_controller import DBController
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 DB_NAME = 'ztp_projekt'
 COLLECTION_NAME = 'evals'
 
-model_controller = ModelController()
 db_controller = DBController(DB_NAME, COLLECTION_NAME)
+model_controller = ModelController()
 
 app = FastAPI()
     
@@ -20,7 +21,15 @@ def build_model():
    eval = model_controller.build_and_evaluate()
    db_controller.insert_one(eval)
 
+@app.on_event('startup')
+def init_data():
+    scheduler = BackgroundScheduler()
+    # https://apscheduler.readthedocs.io/en/3.x/modules/triggers/cron.html
+    scheduler.add_job(build_model, 'cron',minute='*', second='*/30')
+    scheduler.start()
+
 if __name__ == "__main__":
    # TESTING ZONE 
    item = db_controller.get_all()
    print(item)
+   
