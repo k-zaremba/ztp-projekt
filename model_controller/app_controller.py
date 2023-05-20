@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from model_controller import ModelController
 from db_controller import DBController
 from apscheduler.schedulers.background import BackgroundScheduler
+from fastapi.middleware.cors import CORSMiddleware
 
 
 DB_NAME = 'ztp_projekt'
@@ -11,10 +12,21 @@ db_controller = DBController(DB_NAME, COLLECTION_NAME)
 model_controller = ModelController()
 
 app = FastAPI()
-    
+
+origins = ["*"]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/evals")
 def root ():
-  return db_controller.get_all()
+    return db_controller.get_all()
 
 @app.post("/evaluate", status_code=202)
 def build_model():
@@ -29,7 +41,6 @@ def init_data():
     scheduler.start()
 
 if __name__ == "__main__":
-   # TESTING ZONE 
+   # TESTING ZONE
    item = db_controller.get_all()
    print(item)
-   
