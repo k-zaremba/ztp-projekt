@@ -2,7 +2,7 @@ import {DateRangeSelect} from "./DateRangeSelect";
 import {LimitInput} from "./LimitInput";
 import React from "react";
 import {Dayjs} from "dayjs";
-import {Container, Typography, Card} from "@mui/material";
+import {Card, Container, Typography} from "@mui/material";
 
 export interface FiltersInputProps {
 

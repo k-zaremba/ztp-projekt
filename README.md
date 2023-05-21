@@ -5,7 +5,7 @@
 * POST localhost:8000/evaluate to build and evaluate the model manually (evaluation is done automatically every 30 seconds)
 
 #### whats missing
-* front 
+* ~~front~~
 * ~~model building scheduler~~
 * ~~close everything in docker~~
 * add persistent storage

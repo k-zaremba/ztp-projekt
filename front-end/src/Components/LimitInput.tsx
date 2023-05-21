@@ -1,4 +1,4 @@
-import {Box, Container, TextField} from "@mui/material";
+import {TextField} from "@mui/material";
 
 interface LimitInputProps {
     limit: number,
@@ -12,7 +12,7 @@ export const LimitInput = ({limit, setLimit}: LimitInputProps) => {
                    variant="outlined" value={limit} type={"number"}
                    sx={{
                        '& .MuiInputBase-root': {
-                           backgroundColor: '#f5f5f5',
+                           backgroundColor: '#ffffff',
                        },
                        '& .MuiOutlinedInput-notchedOutline': {
                            borderColor: '#a2aebb',
@@ -21,13 +21,14 @@ export const LimitInput = ({limit, setLimit}: LimitInputProps) => {
                            padding: '12px',
                        },
                        '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                           borderColor: '#23b5d3',
+                           borderColor: '#071013',
                        },
                        '& .Mui-focused .MuiOutlinedInput-input': {
-                           color: '#23b5d3',
+                           color: '#071013',
                        },
-                       maxWidth: '35vw',
-                       marginBottom: '16px',
+                       '& .MuiInputLabel-root.Mui-focused': {
+                           color: '#071013',
+                       },
                    }}
                    onChange={(newValue) => {
                        setLimit(+newValue.target.value)

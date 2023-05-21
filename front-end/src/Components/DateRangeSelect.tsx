@@ -17,13 +17,14 @@ export const DateRangeSelect = ({fromDate, setFromDate, toDate, setToDate}: Date
         <Box sx={{
             display: 'flex',
             flexDirection: 'row',
+            gap: '16px',
         }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
                     ampm={false}
                     sx={{
                         '& .MuiInputBase-root': {
-                            backgroundColor: '#f5f5f5',
+                            backgroundColor: '#ffffff',
                         },
                         '& .MuiOutlinedInput-notchedOutline': {
                             borderColor: '#a2aebb',
@@ -32,10 +33,13 @@ export const DateRangeSelect = ({fromDate, setFromDate, toDate, setToDate}: Date
                             padding: '12px',
                         },
                         '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#23b5d3',
+                            borderColor: '#071013',
                         },
                         '& .Mui-focused .MuiOutlinedInput-input': {
-                            color: '#23b5d3',
+                            color: '#071013',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                            color: '#071013',
                         },
                     }}
                     label="Data początkowa"
@@ -50,7 +54,7 @@ export const DateRangeSelect = ({fromDate, setFromDate, toDate, setToDate}: Date
                     ampm={false}
                     sx={{
                         '& .MuiInputBase-root': {
-                            backgroundColor: '#f5f5f5',
+                            backgroundColor: '#ffffff',
                         },
                         '& .MuiOutlinedInput-notchedOutline': {
                             borderColor: '#a2aebb',
@@ -59,10 +63,13 @@ export const DateRangeSelect = ({fromDate, setFromDate, toDate, setToDate}: Date
                             padding: '12px',
                         },
                         '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: '#23b5d3',
+                            borderColor: '#071013',
                         },
                         '& .Mui-focused .MuiOutlinedInput-input': {
-                            color: '#23b5d3',
+                            color: '#071013',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                            color: '#071013',
                         },
                     }}
                     label="Data końcowa"

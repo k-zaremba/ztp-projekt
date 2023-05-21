@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Box, Container, Typography} from "@mui/material";
+import {Container, Typography} from "@mui/material";
 import {Metrics, Record} from "./Components/Metrics";
 import {LoadingCircle} from "./Components/LoadingCircle";
 import {FiltersInput} from "./Components/FiltersInput";
