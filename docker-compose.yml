@@ -7,7 +7,7 @@ services:
       - MONGO-INITDB_ROOT_USERNAME=admin
       - MONGO-INITDB_ROOT_PASSWORD=pass
   model-controller:
-    build: ./model_controller
+    build: ./api
     ports:
       - 8000:8000
     depends_on:
@@ -16,3 +16,4 @@ services:
     build: ./front-end
     ports:
       - 3000:3000
+      

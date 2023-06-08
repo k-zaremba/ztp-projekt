@@ -1,6 +1,7 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 COPY . /app/
 WORKDIR /app
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+# pip install --no-cache-dir --upgrade pip && \
+    
 CMD ["uvicorn", "app_controller:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -40,6 +40,9 @@ class ModelController():
         mae = mean_absolute_error(y_test, y_predict)
         rmse = mean_squared_error(y_test, y_predict, squared=False)
         
+        # Save model
+        self.model = classifier
+
         eval = {
             'loss' : loss,
             'accuracy' : accuracy,

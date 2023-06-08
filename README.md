@@ -8,4 +8,7 @@
 * ~~front~~
 * ~~model building scheduler~~
 * ~~close everything in docker~~
-* add persistent storage
+* ~~add persistent storage~~
+
+##### important commands
+* https://developer.confluent.io/quickstart/kafka-docker/
