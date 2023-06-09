@@ -6,7 +6,17 @@ from sklearn.metrics import accuracy_score, log_loss, roc_auc_score, mean_absolu
 import time
 
 class ModelController():
-    
+    def classify(self, observation):
+        print(observation)
+        o_class = self.model.predict(observation)
+        o_prob = self.model.predict_proba(observation)
+        
+        classification = {
+            'class' : int(o_class[0]),
+            'probability' : float(o_prob[0][o_class][0]),
+        }
+        return classification
+
     def build_and_evaluate(self):
         timestamp = time.time()
 

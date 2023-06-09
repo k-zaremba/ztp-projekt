@@ -1,5 +1,0 @@
-pandas
-pymongo
-scikit-learn
-apscheduler
-kafka-python

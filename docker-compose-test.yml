@@ -1,0 +1,4 @@
+services:
+  consumer:
+    build: ./consumer
+      

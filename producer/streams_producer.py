@@ -1,4 +1,5 @@
-from kafka import KafkaProducer, KafkaConsumer
+from kafka import KafkaProducer
+import time
 import json
 from bson import json_util
 import random
@@ -29,3 +30,13 @@ class StreamsProducer():
     def shutdown(self):
         self.producer.close()
         
+if __name__ == '__main__':
+    BOOTSTRAP_SERVERS = ['broker:29092']
+    TOPIC_NAME = 'ztp-projekt-topic'
+
+    producer = StreamsProducer(BOOTSTRAP_SERVERS, TOPIC_NAME)
+
+    while 1:
+        producer.send_observation()
+        time.sleep(10)
+    producer.shutdown()
