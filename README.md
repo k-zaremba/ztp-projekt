@@ -4,9 +4,9 @@
 * run mongodb FastApi, producer and consumer using `docker compose up`
 
 * GET localhost:8000/evals to list all recorded evaluations
-* POST localhost:8000/evaluate to build and evaluate the model manually (evaluation is done automatically every 30 seconds)
+* POST localhost:8000/evaluate to build and evaluate the model manually (evaluation is done automatically every 1 minute)
 
-* producer serves one observation every 10 seconds and consumer orders API to process the observation
+* producer serves one observation every 5 seconds and consumer orders API to process the observation
 * GET localhost:8000/classifications to list all classifications
 * POST localhost:8000/classifications with BODY as `[[variance, skewness, curtosis, entropy]]` to classify observation manually
 

@@ -9,8 +9,6 @@ from pydantic import BaseModel
 DB_NAME = 'ztp_projekt'
 COLLECTION_NAME_EVALS = 'evals'
 COLLECTION_NAME_CLASSIFICATIONS = 'classifications'
-BOOTSTRAP_SERVERS = ['broker:29092']
-TOPIC_NAME = 'ztp-projekt-topic'
 
 # INIT
 db_controller_evals = DBController(DB_NAME, COLLECTION_NAME_EVALS)
@@ -61,5 +59,4 @@ def get_classifications ():
 
 if __name__ == "__main__":
     # TESTING ZONE
-    # item = db_controller_evals.get_all()
     pass

@@ -38,5 +38,5 @@ if __name__ == '__main__':
 
     while 1:
         producer.send_observation()
-        time.sleep(10)
+        time.sleep(5)
     producer.shutdown()
