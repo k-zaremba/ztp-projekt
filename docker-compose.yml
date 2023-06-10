@@ -14,8 +14,12 @@ services:
       - mongodb
   consumer:
     build: ./consumer
+    depends_on:
+      - api-controller
   producer:
     build: ./producer
+    depends_on:
+      - api-controller
   front-end:
     build: ./front-end
     ports:

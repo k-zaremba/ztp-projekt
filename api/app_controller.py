@@ -42,8 +42,6 @@ def build_model():
    eval = model_controller.build_and_evaluate()
    db_controller_evals.insert_one(eval)
 
-   return eval
-
 @app.on_event('startup')
 def init_data():
     build_model()
@@ -52,11 +50,10 @@ def init_data():
     scheduler.start()
 
 @app.post("/classifications", status_code=202)
-def add_employee(observation: Observation):
+def add_classification(observation: Observation):
     classification = model_controller.classify(observation.data)
+    print(classification)
     db_controller_classifications.insert_one(classification)
-
-    return classification
 
 @app.get("/classifications")
 def get_classifications ():

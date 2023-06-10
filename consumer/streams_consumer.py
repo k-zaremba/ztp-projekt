@@ -2,8 +2,11 @@ from kafka import KafkaConsumer
 import requests
 import ast
 
+# KAFKA STREAMS FOR PYTHON
+# https://streamsets.com/blog/kafka-stream-processing-in-python/
 
-API_URL = 'http://127.0.0.1:8000/classifications'
+
+API_URL = 'http://api-controller:8000/classifications'
 
 class StreamsConsumer():
     def __init__(self, bootstrap_servers, topic_name):
@@ -23,11 +26,10 @@ class StreamsConsumer():
             dict_str = byte_str.decode("UTF-8")
             data = ast.literal_eval(dict_str)
             body = {'data': data['observation']}
-            res = requests.post(API_URL, json = body)
+            headers = {"Content-Type": "application/json"}
 
-
-        # KAFKA STREAMS FOR PYTHON
-        # https://streamsets.com/blog/kafka-stream-processing-in-python/
+            res = requests.post(API_URL, json = body, headers = headers)
+            print(res)
 
 if __name__ == '__main__':
     BOOTSTRAP_SERVERS = ['broker:29092']
