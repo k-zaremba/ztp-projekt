@@ -2,7 +2,7 @@ import {DateRangeSelect} from "./DateRangeSelect";
 import {LimitInput} from "./LimitInput";
 import React from "react";
 import {Dayjs} from "dayjs";
-import {Card, Container, Typography} from "@mui/material";
+import {Card, Grid, Typography} from "@mui/material";
 
 export interface FiltersInputProps {
 
@@ -15,23 +15,21 @@ export interface FiltersInputProps {
 }
 
 export const FiltersInput = ({limit, setLimit, toDate, setToDate, fromDate, setFromDate}: FiltersInputProps) => {
-    return <Container sx={{
-        padding: '2vh',
-        width: '100vw',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+    return <Card sx={{
+        borderRadius: "8px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        padding: "24px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        border: "1px solid #071013",
+        paddingTop: "16px",
+        paddingBottom: "16px",
     }}>
-        <Card sx={{
-            borderRadius: '8px',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            padding: '24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-            border: '1px solid #071013',
-        }}>
-            <Typography variant="h2" sx={{marginBottom: '16px', color: '#071013'}}>Filtruj dane:</Typography>
+        <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <Typography variant="h2">Filtruj metryki modelu:</Typography>
+            </Grid>
 
             <DateRangeSelect setToDate={(new_value) => {
                 setToDate(new_value)
@@ -44,6 +42,6 @@ export const FiltersInput = ({limit, setLimit, toDate, setToDate, fromDate, setF
             <LimitInput limit={limit} setLimit={(newValue: number) => {
                 setLimit(newValue)
             }}/>
-        </Card>
-    </Container>
+        </Grid>
+    </Card>
 }

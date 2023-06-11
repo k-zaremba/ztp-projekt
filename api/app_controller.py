@@ -44,7 +44,7 @@ def build_model():
 def init_data():
     build_model()
     scheduler = BackgroundScheduler() # https://apscheduler.readthedocs.io/en/3.x/modules/triggers/cron.html
-    scheduler.add_job(build_model, 'cron', minute='*/1')
+    scheduler.add_job(build_model, 'cron', minute='*/15')
     scheduler.start()
 
 @app.post("/classifications", status_code=202)
@@ -54,7 +54,9 @@ def add_classification(observation: Observation):
     db_controller_classifications.insert_one(classification)
 
 @app.get("/classifications")
-def get_classifications ():
+def get_classifications (limit: int = None):
+    if limit:
+        return db_controller_classifications.get_last_n(limit)
     return db_controller_classifications.get_all()
 
 if __name__ == "__main__":

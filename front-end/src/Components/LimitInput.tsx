@@ -1,4 +1,5 @@
-import {TextField} from "@mui/material";
+import {Grid, TextField} from "@mui/material";
+import React from "react";
 
 interface LimitInputProps {
     limit: number,
@@ -7,30 +8,13 @@ interface LimitInputProps {
 
 export const LimitInput = ({limit, setLimit}: LimitInputProps) => {
     return (
-        <TextField label="Limit wyświetlanych rekordów"
-                   InputProps={{inputProps: {min: 1}}}
-                   variant="outlined" value={limit} type={"number"}
-                   sx={{
-                       '& .MuiInputBase-root': {
-                           backgroundColor: '#ffffff',
-                       },
-                       '& .MuiOutlinedInput-notchedOutline': {
-                           borderColor: '#a2aebb',
-                       },
-                       '& .MuiOutlinedInput-input': {
-                           padding: '12px',
-                       },
-                       '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                           borderColor: '#071013',
-                       },
-                       '& .Mui-focused .MuiOutlinedInput-input': {
-                           color: '#071013',
-                       },
-                       '& .MuiInputLabel-root.Mui-focused': {
-                           color: '#071013',
-                       },
-                   }}
-                   onChange={(newValue) => {
-                       setLimit(+newValue.target.value)
-                   }}/>)
+        <Grid item xs={12} md={4}>
+            <TextField label="Limit wyświetlanych rekordów"
+                       InputProps={{inputProps: {min: 1}}}
+                       variant="outlined" value={limit} type={"number"}
+                       onChange={(newValue) => {
+                           setLimit(+newValue.target.value)
+                       }}/>
+        </Grid>)
+
 }

@@ -14,6 +14,7 @@ class ModelController():
         classification = {
             'class' : int(o_class[0]),
             'probability' : float(o_prob[0][o_class][0]),
+            'timestamp': time.time()
         }
         return classification
 

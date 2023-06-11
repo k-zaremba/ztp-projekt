@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Container, Typography} from "@mui/material";
+import {Container, Typography, Box} from "@mui/material";
 import {Metrics, Record} from "./Components/Metrics";
 import {LoadingCircle} from "./Components/LoadingCircle";
 import {FiltersInput} from "./Components/FiltersInput";
 import dayjs, {Dayjs} from "dayjs";
+import Last5Classifications from "./Components/Last5Classifications";
 
 require('dayjs/locale/pl')
 
@@ -71,26 +72,23 @@ const App = () => {
     }, []);
 
 
-    // useEffect(() => {
-    //     filterData();
-    // }, [fromDate, toDate, limit]);
-
     // @ts-ignore
     return (
-        <div className="App" style={{
-            background: 'linear-gradient(135deg, #23b5d3, #a2aebb)',
-            borderRadius: '8px',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            minHeight: '100vh',
-            fontFamily: 'Roboto, sans-serif',
-            fontSize: '18px',
-            letterSpacing: '0.5px',
-            lineHeight: '1.5',
-            padding: '24px',
-        }}>
-            <Container sx={{
-                maxWidth: '50vw'
-            }}>
+        <Box
+            sx={{
+                background: "linear-gradient(135deg, #23b5d3, #a2aebb)",
+                borderRadius: "8px",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                minHeight: "100vh",
+                fontFamily: "Roboto, sans-serif",
+                fontSize: "18px",
+                letterSpacing: "0.5px",
+                lineHeight: "1.5",
+                padding: "24px",
+            }}
+        >
+            <Container maxWidth="md">
+
                 <FiltersInput setFromDate={(new_date) => {
                     setFromDate(new_date)
                 }} setToDate={(new_date) => {
@@ -105,8 +103,10 @@ const App = () => {
                 {loading && <LoadingCircle/>}
                 {error && <Typography variant="h2">Wystąpił błąd!</Typography>}
                 {data && <Metrics data={data as Array<Record>}/>}
+                <Last5Classifications/>
+
             </Container>
-        </div>)
+        </Box>)
 }
 
 export default App
