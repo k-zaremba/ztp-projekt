@@ -28,8 +28,12 @@ class StreamsConsumer():
             body = {'data': data['observation']}
             headers = {"Content-Type": "application/json"}
 
-            res = requests.post(API_URL, json = body, headers = headers)
-            print(res)
+            try:
+                res = requests.post(API_URL, json = body, headers = headers)
+                print(res)
+            except Exception as e:
+                print(e)
+                pass
 
 if __name__ == '__main__':
     BOOTSTRAP_SERVERS = ['broker:29092']

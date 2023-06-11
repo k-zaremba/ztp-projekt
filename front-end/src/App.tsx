@@ -18,8 +18,8 @@ const App = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const [fromDate, setFromDate] = useState<Dayjs | null>(dayjs("2023-05-31"))
-    const [toDate, setToDate] = useState<Dayjs | null>(dayjs("2023-05-31"))
+    const [fromDate, setFromDate] = useState<Dayjs | null>(dayjs("2023-06-01"))
+    const [toDate, setToDate] = useState<Dayjs | null>(dayjs("2023-06-31"))
     const [limit, setlimit] = useState<number>(1)
 
     const fetch_data = () => {
@@ -100,10 +100,12 @@ const App = () => {
                               fromDate={fromDate}
                               toDate={toDate}/>
 
+                <Last5Classifications/>
+
+
                 {loading && <LoadingCircle/>}
                 {error && <Typography variant="h2">Wystąpił błąd!</Typography>}
                 {data && <Metrics data={data as Array<Record>}/>}
-                <Last5Classifications/>
 
             </Container>
         </Box>)

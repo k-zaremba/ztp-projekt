@@ -24,7 +24,7 @@ const ClassificationComponent: React.FC<Props> = ({data}) => {
 
     const getFormattedTimestamp = () => {
         const date = new Date(data.timestamp * 1000);
-        return `Data klasyfikacji: ${date.toLocaleString()}`;
+        return `Data klasyfikacji: ${date.toLocaleString("pl-PL")}`;
     };
 
     return (
